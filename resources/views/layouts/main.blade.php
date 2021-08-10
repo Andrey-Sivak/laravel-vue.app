@@ -41,7 +41,7 @@
 
         <!-- Heading -->
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="#">
                 <span>Employee Management</span></a>
         </li>
 
@@ -76,7 +76,7 @@
             </a>
             <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="">User</a>
+                    <a class="collapse-item" href="{{ route('users.index') }}">Users</a>
                     <a class="collapse-item" href="">Role</a>
                     <a class="collapse-item" href="">Permission</a>
                 </div>
@@ -136,17 +136,8 @@
             <!-- End of Topbar -->
 
             <!-- Page Content -->
-
             <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                </div>
-                <div class="row">
-                    @yield('content')
-                </div>
-
+                @yield('content')
             </div>
             <!-- End Page Content -->
 
