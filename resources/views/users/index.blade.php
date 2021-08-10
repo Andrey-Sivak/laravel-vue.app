@@ -9,6 +9,11 @@
             <div class="card-header">
                 <a href="{{ route('users.create') }}" class="float-right">Create</a>
             </div>
+            @if (session('message'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('message') }}
+                </div>
+            @endif
             <div class="card-body">
                 <table class="table">
                     <thead>
