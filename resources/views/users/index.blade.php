@@ -6,14 +6,15 @@
     </div>
     <div class="row">
         <div class="card mx-auto">
-            <div class="card-header">
-                <a href="{{ route('users.create') }}" class="float-right">Create</a>
-            </div>
             @if (session('message'))
                 <div class="alert alert-success" role="alert">
                     {{ session('message') }}
                 </div>
             @endif
+
+            <div class="card-header">
+                <a href="{{ route('users.create') }}" class="float-right">Create</a>
+            </div>
             <div class="card-body">
                 <table class="table">
                     <thead>
@@ -30,7 +31,7 @@
                             <th scope="row">{{ $user->id }}</th>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>Edit\Delete</td>
+                            <td><a class="btn btn-success" href="{{ route('users.edit', $user->id) }}">Edit</a>\Delete</td>
                         </tr>
                     @endforeach
                     </tbody>
