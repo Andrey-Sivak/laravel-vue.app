@@ -13,7 +13,34 @@
             @endif
 
             <div class="card-header">
-                <a href="{{ route('users.create') }}" class="float-right">Create</a>
+                <div class="row">
+                    <div class="col">
+                        <form class="row gy-2 gx-3 align-items-center" method="GET" action="{{ route('users.index') }}">
+                            <div class="col-auto">
+                                @if( !empty($_GET['search']) )
+                                    <input type="search" name="search" class="form-control" id="autoSizingInput" placeholder="{{ $_GET['search'] }}">
+                                @else
+                                    <input type="search" name="search" class="form-control" id="autoSizingInput" placeholder="Jane Doe">
+                                @endif
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </form>
+                        @if( !empty($_GET['search']) )
+                            <div class="mt-2">
+                                <form class="row gy-2 gx-3 align-items-center" method="GET" action="{{ route('users.index') }}">
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn">Reset search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        @endif
+                    </div>
+                    <div>
+                        <a href="{{ route('users.create') }}" class="float-right btn btn-primary">Create</a>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <table class="table">
