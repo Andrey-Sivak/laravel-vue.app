@@ -45,10 +45,7 @@ class CountryController extends Controller
      */
     public function store(CountryStoreRequest $request)
     {
-        Country::create([
-            'country_code' => $request['country_code'],
-            'name' => $request['name'],
-        ]);
+        Country::create($request->validated());
 
         return redirect()
             ->route('countries.index')
@@ -80,16 +77,13 @@ class CountryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param CountryStoreRequest $request
+     * @param Country $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Country $country)
+    public function update(CountryStoreRequest $request, Country $country)
     {
-        $country->update([
-           'country_code' => $request['country_code'],
-           'name' => $request['name'],
-        ]);
+        $country->update($request->validated());
 
         return redirect()
             ->route('countries.index')
